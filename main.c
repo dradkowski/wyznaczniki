@@ -42,16 +42,10 @@ double *wy) {
 }
 
 void pobieranie(double *a1, double *a2, double *b1, double *b2, double *c1, double *c2) {
-    printf("Podaj a1");
-    scanf(" %lf", a1);
-    printf("Podaj b1");
-    scanf(" %lf", b1);
-    printf("Podaj c1");
-    scanf(" %lf", c1);
-    printf("Podaj a2");
-    scanf(" %lf", a2);
-    printf("Podaj b2");
-    scanf(" %lf", b2);
-    printf("Podaj c2");
-    scanf(" %lf", c2);
+    printf("Podaj a1"); scanf(" %lf", a1);
+    printf("Podaj b1"); scanf(" %lf", b1);
+    printf("Podaj c1"); scanf(" %lf", c1);
+    printf("Podaj a2"); scanf(" %lf", a2);
+    printf("Podaj b2"); scanf(" %lf", b2);
+    printf("Podaj c2"); scanf(" %lf", c2);
 }
