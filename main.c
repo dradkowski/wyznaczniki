@@ -2,10 +2,11 @@
 
 void wyswietl_info();
 
+
+
 void pobieranie(double *a1, double *a2, double *b1, double *b2, double *c1, double *c2);
 
-void obliczanieWyznacznikow(double a1, double a2, double b1, double b2, double c1, double c2, double *w, double *wx,
-                            double *wy);
+double wyznacznik (double x1, double x2, double x3, double x4);
 
 void wyswietl_uklad(double a1, double b1, double c1, double a2, double b2, double c2);
 
@@ -21,7 +22,9 @@ int main() {
 
     wyswietl_uklad(a1, b1, c1, a2, b2, c2);
 
-    obliczanieWyznacznikow(a1, a2, b1, b2, c1, c2, &w, &wx, &wy);
+    w = wyznacznik(a1, b2 , b1, a2);
+    wx = wyznacznik(c1 , b2, c2, b1);
+    wy = wyznacznik(a1, c2, c1, a2);
 
     wysietlenieWynikow(w, wx, wy, x, y);
 
@@ -32,19 +35,12 @@ void wysietlenieWynikow(double w, double wx, double wy, double x, double y) {
     if (w) {
         x = wx / w;
         y = wy / w;
-        printf("Układ na jedno rozwiazanie x = %lf y = %lf", x, y);
+        printf("\nUkład na jedno rozwiazanie x = %lf y = %lf", x, y);
     } else if (!w && !wx && !wy) {
-        printf("Układ ma nieskończenie wiele rozwiązań");
+        printf("\nUkład ma nieskończenie wiele rozwiązań");
     } else if ((!w && wx) || (!w && wy)) {
-        printf("ukad jest sprzeczny");
+        printf("\nukad jest sprzeczny");
     }
-}
-
-void obliczanieWyznacznikow(double a1, double a2, double b1, double b2, double c1, double c2, double *w, double *wx,
-double *wy) {
-    (*w) = a1 * b2 - b1 * a2;
-    (*wx) = c1 * b2 - b1 * c2;
-    (*wy) = a1 * c2 - c1 * a2;
 }
 
 void pobieranie(double *a1, double *a2, double *b1, double *b2, double *c1, double *c2) {
@@ -58,8 +54,8 @@ void pobieranie(double *a1, double *a2, double *b1, double *b2, double *c1, doub
 
 void wyswietl_uklad(double a1, double b1, double c1, double a2, double b2, double c2){
     printf("\nTwój układ równań to:\n");
-    printf("%5.2lf X * %5.2lf * Y = %5.2lf ", a1, b1, c1);
-    printf("%5.2lf X * %5.2lf * Y = %5.2lf ", a2, b2, c2);
+    printf("%5.2lf X * %5.2lf * Y = %5.2lf\n", a1, b1, c1);
+    printf("%5.2lf X * %5.2lf * Y = %5.2lf\n", a2, b2, c2);
 }
 
 void wyswietl_info(){
@@ -67,4 +63,8 @@ void wyswietl_info(){
     printf("metodą wyznaczników\n");
     printf("a1x + b1y = c1\n");
     printf("a2x + + b2y = c2\n");
+}
+
+double wyznacznik (double x1, double x2, double x3, double x4){
+    return x1 * x2 - x3 * x4;
 }
