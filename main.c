@@ -24,7 +24,7 @@ int main() {
 
 void wysietlenieWynikow(double w, double wx, double wy, double x, double y) {
     if (w) {
-        x = wx / wy;
+        x = wx / w;
         y = wy / w;
         printf("Układ na jedno rozwiazanie x = %lf y = %lf", x, y);
     } else if (!w && !wx && !wy) {
