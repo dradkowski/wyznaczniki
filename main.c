@@ -2,15 +2,13 @@
 
 void wyswietl_info();
 
-
-
 void pobieranie(double *a1, double *a2, double *b1, double *b2, double *c1, double *c2);
 
 double wyznacznik (double x1, double x2, double x3, double x4);
 
 void wyswietl_uklad(double a1, double b1, double c1, double a2, double b2, double c2);
 
-void wysietlenieWynikow(double w, double wx, double wy, double x, double y);
+void wysietlenieWynikow(double w, double wx, double wy);
 
 int main() {
 
@@ -26,16 +24,14 @@ int main() {
     wx = wyznacznik(c1 , b2, c2, b1);
     wy = wyznacznik(a1, c2, c1, a2);
 
-    wysietlenieWynikow(w, wx, wy, x, y);
+    wysietlenieWynikow(w, wx, wy);
 
     return 0;
 }
 
-void wysietlenieWynikow(double w, double wx, double wy, double x, double y) {
+void wysietlenieWynikow(double w, double wx, double wy) {
     if (w) {
-        x = wx / w;
-        y = wy / w;
-        printf("\nUkład na jedno rozwiazanie x = %lf y = %lf", x, y);
+        printf("\nUkład na jedno rozwiazanie x = %5.2lf y = %5.2lf", wx / w, wy / w);
     } else if (!w && !wx && !wy) {
         printf("\nUkład ma nieskończenie wiele rozwiązań");
     } else if ((!w && wx) || (!w && wy)) {
